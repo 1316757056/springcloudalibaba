@@ -1,0 +1,8 @@
+server:
+  port: 83
+
+spring:  cloud:    nacos:      discovery:        server-addr: localhost:1111
+        
+    sentinel:      transport:        dashboard: localhost:8080  application:    name: cloud-order-nacos-service
+
+feign:  sentinel:    enabled: true

@@ -1,0 +1,14 @@
+server:
+  port: 9001
+
+spring:  application:    name: cloud-payment-nacos-service
+      cloud:    nacos:      discovery:        server-addr: 127.0.0.1:1111
+        
+    sentinel:      transport:        dashboard: 127.0.0.1:8080
+      datasource:        data1:
+          nacos:            server-addr: 127.0.0.1:1111
+            data-id: ${spring.application.name}
+            data-type: json
+            rule-type: flow
+            
+management:  endpoints:    web:      exposure:        include:        - "*"  

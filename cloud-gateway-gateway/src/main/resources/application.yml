@@ -1,0 +1,23 @@
+server:
+  port: 9527
+  
+spring:  application:    name: cloud-gateway
+  cloud:    gateway:
+      discovery:        locator:          enabled: true      routes:      - id: payment
+        uri: lb://CLOUD-PAYMENT-SERVICE
+        #uri: https://www.baidu.com/
+        predicates:         - Path=/payment/find/**
+                              
+
+    
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      #集群
+      #defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+      #单机
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: ${spring.application.name}:${server.port}

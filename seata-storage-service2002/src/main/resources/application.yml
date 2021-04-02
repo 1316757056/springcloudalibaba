@@ -1,0 +1,12 @@
+server:
+  port: 2002
+    
+spring:  cloud:    nacos:      discovery:        server-addr: 127.0.0.1:1111    alibaba:      seata:        tx-service-group: my_test_tx_group  application:    name: seata-storage-service
+      datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    jdbcUrl: jdbc:mysql://127.0.0.1:3306/seata_storage?serverTimezone=GMT%2B8
+    username: root
+    password: 1234
+
+logging:  level:    com.yang: debug
+    

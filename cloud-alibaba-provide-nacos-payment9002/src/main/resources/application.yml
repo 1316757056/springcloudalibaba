@@ -1,0 +1,7 @@
+server:
+  port: 9002
+
+spring:  application:    name: cloud-payment-nacos-service
+      cloud:    nacos:      discovery:        server-addr: 127.0.0.1:1111
+
+management:  endpoints:    web:      exposure:        include:        - "*"        

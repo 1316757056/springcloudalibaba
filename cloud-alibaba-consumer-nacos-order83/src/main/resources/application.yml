@@ -1,0 +1,8 @@
+server:
+  port: 83
+
+spring:  application:    name: cloud-order-nacos-service
+      cloud:    nacos:      discovery:        server-addr: 127.0.0.1:8848
+
+management:  endpoints:    web:      exposure:        include:        - "*"
+        

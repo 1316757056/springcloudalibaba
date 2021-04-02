@@ -1,0 +1,20 @@
+server:
+  port: 8801
+spring:  application:    name: cloud-stram-rabbit
+            
+      cloud:    stream:      binders:
+        default:
+          type: rabbit
+          environment:            host: 127.0.0.1
+            port: 5672
+            username: guest
+            password: guest
+      bindings:
+        output: 
+          destination: aa
+          binder: default
+        input1: 
+          destination: aa
+          binder: default
+          group: aa
+       

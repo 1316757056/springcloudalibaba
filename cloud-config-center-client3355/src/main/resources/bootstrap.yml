@@ -1,0 +1,23 @@
+#配置端口号
+server:
+  port: 3355
+  
+#配置eureka注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:7001/eureka
+#配置微服务名称    
+spring:  application:    name: cloud-config-center-client
+#配置注册中心
+  cloud:    config:
+    #从eureka中发现配置中心      discovery:
+        service-id: cloud-config-center        enabled: true
+      #设置需要读取的文件
+      profile: local
+      name: application
+  #配置rabbitmq      rabbitmq:    host: 127.0.0.1
+    username: guest
+    password: guest
+#开放acturator所有端点    
+management:  endpoints:    web:      exposure:        include:        - "*"

@@ -1,0 +1,18 @@
+server:
+  port: 3366
+  
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:7001/eureka
+      
+spring:  application:    name: cloud-config-center-client
+  cloud:    config:      discovery:
+        service-id: cloud-config-center        enabled: true
+      profile: local
+      name: application
+        rabbitmq:    host: 127.0.0.1
+    username: guest
+    password: guest
+      
+management:  endpoints:    web:      exposure:        include:        - "*"

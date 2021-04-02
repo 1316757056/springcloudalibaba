@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yang.mapper.PaymentMapper">
+	<insert id="save" parameterType="payment" useGeneratedKeys="true" keyProperty="id">
+		insert into payment(serial) values(#{serial})
+	</insert>
+		
+	<resultMap type="payment" id="payment">
+		<id column="id" property="id"/>
+		<result column="serial" property="serial"/>
+	</resultMap>
+		
+	<select id="findById" resultMap="payment">
+		select * from payment where id = #{id}
+	</select>
+</mapper>
+ 
